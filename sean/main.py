@@ -34,12 +34,14 @@ def solve(seed, ns, log):
     for i, id in enumerate(libraryId):
         array = bookIds[i]
         books = len(array)
-        out.append(str(id) + " " + str(books))
-        string = ""
-        for i, e in enumerate(array):
-            string += str(e)
-            if i < len(array) - 1:
-                string += " "
-        out.append(string)
+        if books > 0:
+            out.append(str(id) + " " + str(books))
+            string = ""
+            for i, e in enumerate(array):
+                string += str(e)
+                if i < len(array) - 1:
+                    string += " "
+            if len(string) > 0:
+                out.append(string)
 
     return '\n'.join(out)
