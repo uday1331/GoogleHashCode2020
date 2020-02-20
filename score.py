@@ -11,9 +11,20 @@ def nl(itr):
 def parse(inp):
     itr = (line for line in inp.split('\n'))
     ns = argparse.Namespace()
-    # TODO: fill ns
+    inp = inp.split('\n')
+    numOfBooks,numOfLibs,numOfDays =  [ int(i) for i in inp[0].split(' ') ]
+    bookScores = [ int(i) for i in inp[1].split(' ')]    
 
-    return ns
+    libDetails = []
+    for idx in range(0,numOfLibs,2):
+        detail = {}
+        a,b,c =  [ int(i) for i in inp[idx+2].split(' ') ]
+        detail['signUpDays'] = b
+        detail['numOfShipsPerDay'] = c
+        detail['books'] = [ int(i) for i in inp[idx+3].split(' ') ]
+        libDetails.append(detail)
+    return argparse.Namespace(numOfBooks = numOfBooks, numOfLibs=numOfLibs, numOfDays=numOfDays, bookScores = bookScores, libDetails= libDetails)
+
 
 # inp: the input file as a single string
 # out: the answer file produced by your solver, as a single string
