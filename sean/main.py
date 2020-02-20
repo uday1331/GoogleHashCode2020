@@ -1,4 +1,4 @@
-from .util import square
+from .util import sortLibraries
 
 def solve(seed, ns, log):
 
@@ -29,12 +29,12 @@ def solve(seed, ns, log):
 
     # output
     out = []
-    A = len(libraryId)
-    out.append(str(A))
+    A = 0
     for i, id in enumerate(libraryId):
         array = bookIds[i]
         books = len(array)
         if books > 0:
+            A += 1
             out.append(str(id) + " " + str(books))
             string = ""
             for i, e in enumerate(array):
@@ -43,5 +43,8 @@ def solve(seed, ns, log):
                     string += " "
             if len(string) > 0:
                 out.append(string)
+    out.insert(0, str(A))
+    # print(out)
 
     return '\n'.join(out)
+
