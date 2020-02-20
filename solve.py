@@ -12,13 +12,13 @@ from sean.main import printSquare as seanPrintSquare
 def solve(seed, inp, log):
     random.seed(seed)
     ns = parse(inp)
-    print(ns)
+    #print(ns)
 
     # TODO: Solve the problem
-    udayPrintSquare(seed, inp, log)
-    ahsanPrintSquare(seed, inp, log)
-    welvinPrintSquare(seed, inp, log)
-    seanPrintSquare(seed, inp, log)
+    #udayPrintSquare(seed, inp, log)
+    ahsanPrintSquare(seed, ns, log)
+    #welvinPrintSquare(seed, inp, log)
+    #seanPrintSquare(seed, inp, log)
     
 
     return '2\n1 3\n5 2 3\n0 5\n0 1 2 3 4'
