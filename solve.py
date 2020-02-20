@@ -21,4 +21,4 @@ def solve(seed, inp, log):
     seanPrintSquare(seed, inp, log)
     
 
-    return '0'
+    return '2\n1 3\n5 2 3\n0 5\n0 1 2 3 4'

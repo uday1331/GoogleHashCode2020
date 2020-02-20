@@ -31,9 +31,25 @@ def parse(inp):
 # return the score of the output as an integer
 def score(inp, out):
     ns = parse(inp)
-    itr = (line for line in out.split('\n'))
-    # TODO: implement
-    print("score is",out)
+    outLines = out.split("\n")
+    numOfLibsSigned = outLines[0]
+    daysLeft = ns.numOfDays
+    score = 0
+    scores = []
+    for i in range(1, len(outLines), 2):
+        lib = int(outLines[i].split(" ")[0])
+        libToBeSigned = ns.libDetails[lib]
+        booksToBeScanned = map(int, outLines[i+1].split(" "))
+        for j in range(libToBeSigned["numOfShipsPerDay"] * (daysLeft - libToBeSigned["signUpDays"])):
+            try:
+                if booksToBeScanned[j] not in scores:
+                    score+= ns.bookScores[booksToBeScanned[j]]
+                    scores.append(booksToBeScanned[j])
+            except: 
+                pass
+        
+        daysLeft -= libToBeSigned["signUpDays"]
+    print(score)
 
     return 11233
 
