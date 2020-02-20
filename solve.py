@@ -18,7 +18,7 @@ def solve(seed, inp, log):
     # udayPrintSquare(seed, inp, log)
     # ahsanPrintSquare(seed, inp, log)
     # welvinPrintSquare(seed, inp, log)
-    seanSolve(seed, ns, log)
+    sean = seanSolve(seed, ns, log)
     
 
-    return '2\n1 3\n5 2 3\n0 5\n0 1 2 3 4'
+    return sean
