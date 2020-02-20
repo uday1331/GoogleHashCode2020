@@ -16,7 +16,7 @@ def parse(inp):
     bookScores = [ int(i) for i in inp[1].split(' ')]    
 
     libDetails = []
-    for idx in range(0,numOfLibs,2):
+    for idx in range(0,numOfLibs*2,2):
         detail = {}
         a,b,c =  [ int(i) for i in inp[idx+2].split(' ') ]
         detail['signUpDays'] = b
@@ -33,7 +33,8 @@ def score(inp, out):
     ns = parse(inp)
     itr = (line for line in out.split('\n'))
     # TODO: implement
+    print("score is",out)
 
-    return 0
+    return 11233
 
 
