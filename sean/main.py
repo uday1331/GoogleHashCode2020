@@ -12,11 +12,11 @@ def solve(seed, ns, log):
 
     while daysPassed < D:
 
-        for id, index in enumerate(libraryId):
+        for id, i in enumerate(libraryId):
             allBooks = details[id]['books']
             s = int(details[id]['numOfShipsPerDay'])
-            currentNumber = len(bookIds[index])
-            bookIds[index] += allBooks[currentNumber: currentNumber + s]
+            currentNumber = len(bookIds[i])
+            bookIds[i] += allBooks[currentNumber: currentNumber + s]
 
         if signUp == 0 and currentL + 1 < len(details):
             currentL += 1
@@ -31,12 +31,12 @@ def solve(seed, ns, log):
     out = []
     A = len(libraryId)
     out.append(str(A))
-    for id, index in enumerate(libraryId):
-        books = len(bookIds[index])
+    for i, id in enumerate(libraryId):
+        array = bookIds[i]
+        books = len(array)
         out.append(str(id) + " " + str(books))
         string = ""
-        array = bookIds[index]
-        for e, i in enumerate(array):
+        for i, e in enumerate(array):
             string += str(e)
             if i < len(array) - 1:
                 string += " "
