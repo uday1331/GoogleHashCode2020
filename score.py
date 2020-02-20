@@ -49,8 +49,7 @@ def score(inp, out):
                 pass
         
         daysLeft -= libToBeSigned["signUpDays"]
-    print(score)
 
-    return 11233
+    return score
 
 
