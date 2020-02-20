@@ -18,5 +18,6 @@ def solve(seed, inp, log):
     ahsanPrintSquare(2)
     welvinPrintSquare(3)
     seanPrintSquare(4)
+    
 
     return '0'
