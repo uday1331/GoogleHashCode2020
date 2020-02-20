@@ -1,3 +1,4 @@
+import copy
 from .util import sortLibraries
 
 def solve(seed, ns, log):
@@ -7,12 +8,10 @@ def solve(seed, ns, log):
     bookScores = ns.bookScores
     daysPassed = 0
     signUp = 0
-    currentL = 0
     libraryId = []
     bookIds = []
 
-    sortedLibraries = sortLibraries(details[currentL:], D - daysPassed, bookScores)
-    print(sortedLibraries)
+    sortedLibraries = sortLibraries(copy.deepcopy(details), D - daysPassed, bookScores)
     while daysPassed < D:
 
         for id, i in enumerate(libraryId):
@@ -21,16 +20,17 @@ def solve(seed, ns, log):
             currentNumber = len(bookIds[i])
             bookIds[i] += allBooks[currentNumber: currentNumber + s]
 
-        if signUp == 0:
-            currentL += 1
+        if signUp == 0 and len(sortedLibraries) > 0:
+            # print(sortedLibraries)
             id = sortedLibraries[0]['id']
             libraryId.append(id)
+            print(id)
             bookIds.append([])
             signUp = int(details[id]['signUpDays'])
+            sortedLibraries = sortLibraries(sortedLibraries[1:], D - daysPassed, bookScores)
 
         daysPassed += 1
         signUp -= 1
-        sortedLibraries = sortLibraries(sortedLibraries[1:], D - daysPassed, bookScores)
 
     # output
     out = []
