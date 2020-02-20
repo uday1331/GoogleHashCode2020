@@ -4,12 +4,15 @@ def solve(seed, ns, log):
 
     D, B, L = ns.numOfDays, ns.numOfBooks, ns.numOfLibs
     details = ns.libDetails
+    bookScores = ns.bookScores
     daysPassed = 0
     signUp = 0
-    currentL = -1
+    currentL = 0
     libraryId = []
     bookIds = []
 
+    sortedLibraries = sortLibraries(details[currentL:], D - daysPassed, bookScores)
+    print(sortedLibraries)
     while daysPassed < D:
 
         for id, i in enumerate(libraryId):
@@ -18,14 +21,16 @@ def solve(seed, ns, log):
             currentNumber = len(bookIds[i])
             bookIds[i] += allBooks[currentNumber: currentNumber + s]
 
-        if signUp == 0 and currentL + 1 < len(details):
+        if signUp == 0:
             currentL += 1
-            libraryId.append(currentL)
+            id = sortedLibraries[0]['id']
+            libraryId.append(id)
             bookIds.append([])
-            signUp = int(details[currentL]['signUpDays'])
+            signUp = int(details[id]['signUpDays'])
 
         daysPassed += 1
         signUp -= 1
+        sortedLibraries = sortLibraries(sortedLibraries[1:], D - daysPassed, bookScores)
 
     # output
     out = []
