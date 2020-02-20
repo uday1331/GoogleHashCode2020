@@ -14,10 +14,10 @@ def solve(seed, inp, log):
     ns = parse(inp)
 
     # TODO: Solve the problem
-    udayPrintSquare(1)
-    ahsanPrintSquare(2)
-    welvinPrintSquare(3)
-    seanPrintSquare(4)
+    udayPrintSquare(seed, inp, log)
+    ahsanPrintSquare(seed, inp, log)
+    welvinPrintSquare(seed, inp, log)
+    seanPrintSquare(seed, inp, log)
     
 
     return '0'
