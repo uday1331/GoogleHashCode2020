@@ -4,7 +4,7 @@ from score import parse
 from uday.main import printSquare as udayPrintSquare
 from ahsan.main import printSquare as ahsanPrintSquare
 from welvin.main import printSquare as welvinPrintSquare
-from sean.main import printSquare as seanPrintSquare
+from sean.main import solve as seanSolve
 # inp is an input file as a single string
 # return your output as a string
 
@@ -12,13 +12,13 @@ from sean.main import printSquare as seanPrintSquare
 def solve(seed, inp, log):
     random.seed(seed)
     ns = parse(inp)
-    print(ns)
+    # print(ns)
 
     # TODO: Solve the problem
-    udayPrintSquare(seed, inp, log)
-    ahsanPrintSquare(seed, inp, log)
-    welvinPrintSquare(seed, inp, log)
-    seanPrintSquare(seed, inp, log)
+    # udayPrintSquare(seed, inp, log)
+    # ahsanPrintSquare(seed, inp, log)
+    # welvinPrintSquare(seed, inp, log)
+    seanSolve(seed, ns, log)
     
 
     return '2\n1 3\n5 2 3\n0 5\n0 1 2 3 4'

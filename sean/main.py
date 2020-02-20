@@ -42,5 +42,4 @@ def solve(seed, ns, log):
                 string += " "
         out.append(string)
 
-    print(out)
     return '\n'.join(out)
